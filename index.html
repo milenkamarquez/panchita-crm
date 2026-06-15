@@ -30,7 +30,7 @@
         /* NAVBAR */
         .navbar {
             background-color: var(--dark);
-            padding: 15px 0;
+            padding: 10px 0;
             position: fixed;
             width: 100%;
             top: 0;
@@ -46,6 +46,17 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-img {
+            height: 50px;
+            width: auto;
         }
 
         .logo {
@@ -99,10 +110,24 @@
             margin-top: 70px;
         }
 
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .hero-logo {
+            height: 120px;
+            width: auto;
+            margin-bottom: 20px;
+        }
+
         .hero-content h1 {
             font-size: 60px;
             margin-bottom: 20px;
             letter-spacing: 2px;
+            display: none;
         }
 
         .hero-content p {
@@ -544,10 +569,6 @@
                 display: none;
             }
 
-            .hero-content h1 {
-                font-size: 36px;
-            }
-
             .section {
                 padding: 40px 15px;
             }
@@ -555,6 +576,10 @@
             .reserve-btn {
                 padding: 8px 15px;
                 font-size: 14px;
+            }
+
+            .hero-content h1 {
+                font-size: 36px;
             }
         }
     </style>
@@ -564,7 +589,10 @@
     <!-- NAVBAR -->
     <nav class="navbar">
         <div class="navbar-container">
-            <div class="logo">🍽️ PANCHITA</div>
+            <div class="logo-container">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4wch6OOSUj4KjrU9ctpYKTVErvxv9YvECtQ&s" alt="Panchita" class="logo-img">
+                <span class="logo">PANCHITA</span>
+            </div>
             <ul class="nav-links">
                 <li><a href="#menu">MENÚ</a></li>
                 <li><a href="#locations">UBICACIONES</a></li>
@@ -577,7 +605,7 @@
     <!-- HERO -->
     <section class="hero">
         <div class="hero-content">
-            <h1>PANCHITA</h1>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4wch6OOSUj4KjrU9ctpYKTVErvxv9YvECtQ&s" alt="Panchita" class="hero-logo">
             <p>Cocina Peruana Elegante</p>
             <p style="font-size: 18px; color: var(--cream);">Sabores que cuentan historias</p>
             <div class="hero-buttons">
@@ -591,9 +619,9 @@
     <section id="menu" class="section menu">
         <h2 class="section-title">Nuestro Menú</h2>
         <div class="menu-grid">
-            <!-- Ceviche -->
+            <!-- Ceviche Clásico -->
             <div class="menu-item">
-                <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=300&fit=crop" alt="Ceviche" class="menu-item-image">
+                <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=300&fit=crop" alt="Ceviche Clásico" class="menu-item-image">
                 <div class="menu-item-content">
                     <div class="menu-item-name">Ceviche Clásico</div>
                     <div class="menu-item-description">Pescado fresco marinado en limón con cebolla roja, cilantro y rocoto. Acompañado de camote y choclo.</div>
@@ -611,9 +639,9 @@
                 </div>
             </div>
 
-            <!-- Causa -->
+            <!-- Causa Limeña -->
             <div class="menu-item">
-                <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=300&fit=crop" alt="Causa" class="menu-item-image">
+                <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400&h=300&fit=crop" alt="Causa" class="menu-item-image">
                 <div class="menu-item-content">
                     <div class="menu-item-name">Causa Limeña</div>
                     <div class="menu-item-description">Pastel de papa amarilla con atún, aguacate y huevo duro. Decorado con salsa de ají amarillo y mayonesa.</div>
@@ -623,7 +651,7 @@
 
             <!-- Tiradito -->
             <div class="menu-item">
-                <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=300&fit=crop" alt="Tiradito" class="menu-item-image">
+                <img src="https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?w=400&h=300&fit=crop" alt="Tiradito" class="menu-item-image">
                 <div class="menu-item-content">
                     <div class="menu-item-name">Tiradito de Pez Espada</div>
                     <div class="menu-item-description">Filetes finos de pez espada en salsa de ají amarillo con choclo cancha y aceitunas negras.</div>
@@ -663,7 +691,7 @@
 
             <!-- Papa a la Huancaína -->
             <div class="menu-item">
-                <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=300&fit=crop" alt="Papa a la Huancaína" class="menu-item-image">
+                <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400&h=300&fit=crop" alt="Papa a la Huancaína" class="menu-item-image">
                 <div class="menu-item-content">
                     <div class="menu-item-name">Papa a la Huancaína</div>
                     <div class="menu-item-description">Papas amarillas cubiertas con salsa cremosa de ají amarillo, queso fresco y aceitunas negras.</div>
