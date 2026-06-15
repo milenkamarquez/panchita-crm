@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panchita Bogotá - Registro CRM</title>
+    <style>
+        :root {
+            --base-color: #5C2C16; /* Marrón corporativo de Panchita */
+            --accent-color: #D35400; /* Naranja gastronómico */
+            --bg-color: #FDFBF7; /* Fondo crema cálido */
+            --text-color: #2C2C2C;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 450px;
+            background: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+            overflow: hidden;
+            margin: 15px;
+            border: 1px solid #EAE5DC;
+        }
+
+        .header {
+            background-color: var(--base-color);
+            color: #ffffff;
+            text-align: center;
+            padding: 25px 15px;
+            border-bottom: 4px solid var(--accent-color);
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .header p {
+            margin: 5px 0 0 0;
+            font-size: 14px;
+            opacity: 0.9;
+            font-style: italic;
+        }
+
+        .content {
+            padding: 25px 20px;
+        }
+
+        .intro-text {
+            font-size: 14px;
+            line-height: 1.5;
+            color: #666;
+            margin-bottom: 20px;
+            text-align: center;
+            background: #F4F0E8;
+            padding: 10px;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: var(--base-color);
+        }
+
+        input[type="text"], select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #CCC;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 14px;
+            background-color: #FCFCFC;
+            transition: all 0.3s ease;
+        }
+
+        input[type="text"]:focus, select:focus {
+            border-color: var(--accent-color);
+            outline: none;
+            box-shadow: 0 0 5px rgba(211, 84, 0, 0.2);
+        }
+
+        .btn-submit {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 14px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 10px;
+        }
+
+        .btn-submit:hover {
+            background-color: #B34300;
+        }
+
+        /* Modal / Alerta de éxito simulada */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 30px 20px;
+            border-radius: 12px;
+            text-align: center;
+            max-width: 350px;
+            width: 100%;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            animation: popup 0.3s ease-out;
+        }
+
+        @keyframes popup {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .modal-icon {
+            font-size: 50px;
+            color: #2ECC71;
+            margin-bottom: 15px;
+        }
+
+        .modal-title {
+            color: var(--base-color);
+            margin: 0 0 10px 0;
+            font-size: 20px;
+        }
+
+        .modal-text {
+            font-size: 14px;
+            color: #555;
+            line-height: 1.4;
+            margin-bottom: 20px;
+        }
+
+        .btn-close {
+            background-color: var(--base-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <h1>Panchita</h1>
+            <p>Sazón Criolla - Bogotá</p>
+        </div>
+        
+        <div class="content">
+            <div class="intro-text">
+                Gestión Comercial Multinacional: Personalización de la experiencia del consumidor digital.
+            </div>
+
+            <form id="crmForm" onsubmit="enviarDatos(event)">
+                <div class="form-group">
+                    <label for="nombre">Nombre del Comensal:</label>
+                    <input type="text" id="nombre" placeholder="Ej. Profesor James Leigh" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="motivo">Motivo de su visita a Bogotá:</label>
+                    <select id="motivo" required>
+                        <option value="" disabled selected>Seleccione una opción</option>
+                        <option value="negocios">Reunión de Negocios / Junta Comercial</option>
+                        <option value="celebracion">Celebración Especial</option>
+                        <option value="turismo">Turismo Gastronómico Intercultural</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="alergias">¿Tiene alguna restricción alimentaria o alergia?</label>
+                    <input type="text" id="alergias" placeholder="Ej. Gluten, mariscos, ninguna" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="cortesia">Seleccione su cortesía de bienvenida (Enfoque Intercultural):</label>
+                    <select id="cortesia" required>
+                        <option value="" disabled selected>Seleccione una bebida</option>
+                        <option value="chicha">Chicha Morada Tradicional (Perú)</option>
+                        <option value="lulo">Refresco de Lulo Fresco (Colombia)</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn-submit">Confirmar Reserva Inteligente</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Ventana Emergente de Simulación CRM -->
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-icon">✓</div>
+            <h3 class="modal-title">¡Reserva Sincronizada!</h3>
+            <p class="modal-text">Los datos han sido enviados exitosamente al <strong>módulo CRM de Panchita Internacional</strong>.<br><br>La cadena de suministro ha priorizado sus insumos críticos para su llegada.</p>
+            <button class="btn-close" onclick="cerrarModal()">Finalizar Demostración</button>
+        </div>
+    </div>
+
+    <script>
+        function enviarDatos(event) {
+            event.preventDefault(); // Evita que la página se recargue
+            
+            // Aquí simulamos la captura en el sistema corporativo
+            document.getElementById('successModal').style.display = 'flex';
+        }
+
+        function cerrarModal() {
+            document.getElementById('successModal').style.display = 'none';
+            document.getElementById('crmForm').reset(); // Limpia el formulario
+        }
+    </script>
+
+</body>
+</html>
