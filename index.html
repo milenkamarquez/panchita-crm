@@ -4,585 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panchita - Cocina Peruana Elegante</title>
+    <meta name="description" content="Panchita: Auténtica cocina peruana elegante. Disfruta de ceviche, lomo saltado y más en nuestras ubicaciones.">
+    <meta property="og:title" content="Panchita - Cocina Peruana Elegante">
+    <meta property="og:description" content="Auténtica cocina peruana con toques de elegancia. Reserva tu mesa hoy.">
+    <meta property="og:image" content="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4wch6OOSUj4KjrU9ctpYKTVErvxv9YvECtQ&s">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --gold: #C9A961;
-            --dark: #1a1a1a;
-            --cream: #F5F1E8;
-            --accent: #8B4513;
-            --light-gray: #E8E4DC;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--dark);
-            color: #333;
-            line-height: 1.6;
-        }
-
-        /* NAVBAR */
-        .navbar {
-            background-color: var(--dark);
-            padding: 10px 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 999;
-            border-bottom: 2px solid var(--gold);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-        }
-
-        .navbar-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .logo-img {
-            height: 50px;
-            width: auto;
-        }
-
-        .logo {
-            color: var(--gold);
-            font-size: 24px;
-            font-weight: bold;
-            letter-spacing: 2px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 30px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--cream);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--gold);
-        }
-
-        .reserve-btn {
-            background-color: var(--gold);
-            color: var(--dark);
-            padding: 10px 25px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: all 0.3s;
-        }
-
-        .reserve-btn:hover {
-            background-color: #b39660;
-            transform: scale(1.05);
-        }
-
-        /* HERO */
-        .hero {
-            background: linear-gradient(rgba(26, 26, 26, 0.6), rgba(26, 26, 26, 0.8)), url('https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=1200&h=600&fit=crop') center/cover;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            margin-top: 70px;
-        }
-
-        .hero-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .hero-logo {
-            height: 120px;
-            width: auto;
-            margin-bottom: 20px;
-        }
-
-        .hero-content h1 {
-            font-size: 60px;
-            margin-bottom: 20px;
-            letter-spacing: 2px;
-            display: none;
-        }
-
-        .hero-content p {
-            font-size: 24px;
-            margin-bottom: 40px;
-            font-style: italic;
-            color: var(--gold);
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-        }
-
-        .btn {
-            padding: 15px 40px;
-            font-size: 16px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-weight: bold;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .btn-primary {
-            background-color: var(--gold);
-            color: var(--dark);
-        }
-
-        .btn-primary:hover {
-            background-color: #b39660;
-            transform: translateY(-3px);
-        }
-
-        .btn-secondary {
-            background-color: transparent;
-            color: var(--gold);
-            border: 2px solid var(--gold);
-        }
-
-        .btn-secondary:hover {
-            background-color: var(--gold);
-            color: var(--dark);
-        }
-
-        /* SECCIONES */
-        .section {
-            padding: 80px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 45px;
-            margin-bottom: 60px;
-            color: var(--dark);
-            border-bottom: 3px solid var(--gold);
-            padding-bottom: 20px;
-        }
-
-        /* MENÚ */
-        .menu {
-            background-color: var(--cream);
-        }
-
-        .menu-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .menu-item {
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .menu-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(201, 169, 97, 0.3);
-        }
-
-        .menu-item-image {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-        }
-
-        .menu-item-content {
-            padding: 20px;
-        }
-
-        .menu-item-name {
-            font-size: 22px;
-            font-weight: bold;
-            color: var(--accent);
-            margin-bottom: 8px;
-        }
-
-        .menu-item-description {
-            font-size: 14px;
-            color: #666;
-            margin-bottom: 15px;
-            line-height: 1.5;
-        }
-
-        .menu-item-price {
-            font-size: 20px;
-            font-weight: bold;
-            color: var(--gold);
-        }
-
-        /* UBICACIONES */
-        .locations {
-            background-color: var(--dark);
-            color: white;
-        }
-
-        .location-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
-            margin-top: 40px;
-        }
-
-        .location-card {
-            background: rgba(201, 169, 97, 0.1);
-            border: 2px solid var(--gold);
-            border-radius: 10px;
-            padding: 30px;
-            text-align: center;
-            transition: all 0.3s;
-        }
-
-        .location-card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 30px rgba(201, 169, 97, 0.3);
-        }
-
-        .location-card h3 {
-            color: var(--gold);
-            font-size: 24px;
-            margin-bottom: 15px;
-        }
-
-        .location-card p {
-            margin-bottom: 10px;
-            font-size: 14px;
-        }
-
-        .location-card img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            border-radius: 8px;
-            margin-top: 20px;
-        }
-
-        /* RESERVAS */
-        .reservations {
-            background-color: var(--cream);
-        }
-
-        .reserve-form {
-            max-width: 600px;
-            margin: 0 auto;
-            background: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        label {
-            display: block;
-            font-weight: bold;
-            color: var(--accent);
-            margin-bottom: 8px;
-            font-size: 14px;
-        }
-
-        input[type="text"],
-        input[type="email"],
-        input[type="date"],
-        input[type="time"],
-        select,
-        textarea {
-            width: 100%;
-            padding: 12px;
-            border: 2px solid var(--light-gray);
-            border-radius: 5px;
-            font-size: 14px;
-            font-family: inherit;
-            transition: border-color 0.3s;
-        }
-
-        input:focus,
-        select:focus,
-        textarea:focus {
-            outline: none;
-            border-color: var(--gold);
-            box-shadow: 0 0 5px rgba(201, 169, 97, 0.3);
-        }
-
-        .form-submit {
-            background-color: var(--gold);
-            color: var(--dark);
-            padding: 15px;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-            width: 100%;
-            transition: all 0.3s;
-        }
-
-        .form-submit:hover {
-            background-color: #b39660;
-            transform: scale(1.02);
-        }
-
-        /* CHATBOT */
-        .chatbot-widget {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            z-index: 1000;
-        }
-
-        .chatbot-button {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background-color: var(--gold);
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-            font-size: 24px;
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--dark);
-        }
-
-        .chatbot-button:hover {
-            transform: scale(1.1);
-            background-color: #b39660;
-        }
-
-        .chatbot-window {
-            display: none;
-            position: absolute;
-            bottom: 80px;
-            right: 0;
-            width: 350px;
-            height: 500px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-            flex-direction: column;
-            overflow: hidden;
-            animation: slideUp 0.3s ease-out;
-        }
-
-        @keyframes slideUp {
-            from {
-                transform: translateY(20px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        .chatbot-header {
-            background-color: var(--gold);
-            color: var(--dark);
-            padding: 20px;
-            font-weight: bold;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .chatbot-close {
-            background: none;
-            border: none;
-            font-size: 20px;
-            cursor: pointer;
-            color: var(--dark);
-        }
-
-        .chatbot-messages {
-            flex: 1;
-            overflow-y: auto;
-            padding: 20px;
-            background-color: #f9f9f9;
-        }
-
-        .message {
-            margin-bottom: 15px;
-            padding: 10px 15px;
-            border-radius: 8px;
-            max-width: 80%;
-            word-wrap: break-word;
-            animation: fadeIn 0.3s ease-out;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .bot-message {
-            background-color: #e9e9e9;
-            color: var(--dark);
-            align-self: flex-start;
-        }
-
-        .user-message {
-            background-color: var(--gold);
-            color: var(--dark);
-            align-self: flex-end;
-            margin-left: auto;
-        }
-
-        .chatbot-input-area {
-            padding: 15px;
-            border-top: 1px solid #ddd;
-            display: flex;
-            gap: 10px;
-        }
-
-        .chatbot-input {
-            flex: 1;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 13px;
-        }
-
-        .chatbot-send {
-            background-color: var(--gold);
-            border: none;
-            color: var(--dark);
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            cursor: pointer;
-            font-weight: bold;
-            transition: all 0.3s;
-        }
-
-        .chatbot-send:hover {
-            background-color: #b39660;
-        }
-
-        /* FOOTER */
-        footer {
-            background-color: var(--dark);
-            color: var(--cream);
-            text-align: center;
-            padding: 30px;
-            border-top: 2px solid var(--gold);
-        }
-
-        /* MODAL */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.7);
-            z-index: 1001;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-
-        .modal-content {
-            background: white;
-            padding: 40px;
-            border-radius: 10px;
-            text-align: center;
-            max-width: 400px;
-            animation: popup 0.3s ease-out;
-        }
-
-        @keyframes popup {
-            from {
-                transform: scale(0.8);
-                opacity: 0;
-            }
-            to {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
-
-        .modal-icon {
-            font-size: 60px;
-            color: var(--gold);
-            margin-bottom: 20px;
-        }
-
-        .modal-close {
-            background-color: var(--gold);
-            color: var(--dark);
-            border: none;
-            padding: 12px 30px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-            margin-top: 20px;
-        }
-
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .section {
-                padding: 40px 15px;
-            }
-
-            .reserve-btn {
-                padding: 8px 15px;
-                font-size: 14px;
-            }
-
-            .hero-content h1 {
-                font-size: 36px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
@@ -593,14 +20,34 @@
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4wch6OOSUj4KjrU9ctpYKTVErvxv9YvECtQ&s" alt="Panchita" class="logo-img">
                 <span class="logo">PANCHITA</span>
             </div>
-            <ul class="nav-links">
+            <ul class="nav-links" id="navLinks">
                 <li><a href="#menu">MENÚ</a></li>
+                <li><a href="#gallery">GALERÍA</a></li>
+                <li><a href="#testimonials">TESTIMONIOS</a></li>
+                <li><a href="#promotions">PROMOCIONES</a></li>
                 <li><a href="#locations">UBICACIONES</a></li>
                 <li><a href="#reservations">RESERVAS</a></li>
             </ul>
-            <a href="#reservations" class="reserve-btn">Reservar Ahora</a>
+            <div class="navbar-buttons">
+                <a href="#reservations" class="reserve-btn">Reservar Ahora</a>
+                <button class="hamburger" id="hamburger" onclick="toggleMobileMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
         </div>
     </nav>
+
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#menu" onclick="toggleMobileMenu()">MENÚ</a>
+        <a href="#gallery" onclick="toggleMobileMenu()">GALERÍA</a>
+        <a href="#testimonials" onclick="toggleMobileMenu()">TESTIMONIOS</a>
+        <a href="#promotions" onclick="toggleMobileMenu()">PROMOCIONES</a>
+        <a href="#locations" onclick="toggleMobileMenu()">UBICACIONES</a>
+        <a href="#reservations" onclick="toggleMobileMenu()">RESERVAS</a>
+    </div>
 
     <!-- HERO -->
     <section class="hero">
@@ -621,7 +68,13 @@
         <div class="menu-grid">
             <!-- Ceviche Clásico -->
             <div class="menu-item">
-                <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=300&fit=crop" alt="Ceviche Clásico" class="menu-item-image">
+                <div class="menu-item-image-container">
+                    <img src="https://barrilesderoble.com/images/olimpiada/recetas/ceviche-tigre-leche-pisco-peru.webp" alt="Ceviche Clásico" class="menu-item-image">
+                    <div class="menu-item-rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="rating-count">(245)</span>
+                    </div>
+                </div>
                 <div class="menu-item-content">
                     <div class="menu-item-name">Ceviche Clásico</div>
                     <div class="menu-item-description">Pescado fresco marinado en limón con cebolla roja, cilantro y rocoto. Acompañado de camote y choclo.</div>
@@ -631,7 +84,13 @@
 
             <!-- Lomo Saltado -->
             <div class="menu-item">
-                <img src="https://images.unsplash.com/photo-1432139555190-58524dae6a55?w=400&h=300&fit=crop" alt="Lomo Saltado" class="menu-item-image">
+                <div class="menu-item-image-container">
+                    <img src="https://static.wixstatic.com/media/9755d8_b2d98eade0814b17a67fdf7d95888fdc~mv2.png/v1/fill/w_1280,h_720,al_c/9755d8_b2d98eade0814b17a67fdf7d95888fdc~mv2.png" alt="Lomo Saltado" class="menu-item-image">
+                    <div class="menu-item-rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="rating-count">(312)</span>
+                    </div>
+                </div>
                 <div class="menu-item-content">
                     <div class="menu-item-name">Lomo Saltado</div>
                     <div class="menu-item-description">Trozos de lomo fino salteados con cebolla, tomate y rocoto. Servido con papas fritas y arroz blanco.</div>
@@ -641,7 +100,13 @@
 
             <!-- Causa Limeña -->
             <div class="menu-item">
-                <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400&h=300&fit=crop" alt="Causa" class="menu-item-image">
+                <div class="menu-item-image-container">
+                    <img src="https://sabordelobueno.com/wp-content/uploads/2020/05/causa-de-pollo-1.jpg" alt="Causa Limeña" class="menu-item-image">
+                    <div class="menu-item-rating">
+                        <span class="stars">★★★★☆</span>
+                        <span class="rating-count">(198)</span>
+                    </div>
+                </div>
                 <div class="menu-item-content">
                     <div class="menu-item-name">Causa Limeña</div>
                     <div class="menu-item-description">Pastel de papa amarilla con atún, aguacate y huevo duro. Decorado con salsa de ají amarillo y mayonesa.</div>
@@ -651,7 +116,13 @@
 
             <!-- Tiradito -->
             <div class="menu-item">
-                <img src="https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?w=400&h=300&fit=crop" alt="Tiradito" class="menu-item-image">
+                <div class="menu-item-image-container">
+                    <img src="https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?w=400&h=300&fit=crop" alt="Tiradito" class="menu-item-image">
+                    <div class="menu-item-rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="rating-count">(267)</span>
+                    </div>
+                </div>
                 <div class="menu-item-content">
                     <div class="menu-item-name">Tiradito de Pez Espada</div>
                     <div class="menu-item-description">Filetes finos de pez espada en salsa de ají amarillo con choclo cancha y aceitunas negras.</div>
@@ -661,7 +132,13 @@
 
             <!-- Ají de Gallina -->
             <div class="menu-item">
-                <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=300&fit=crop" alt="Ají de Gallina" class="menu-item-image">
+                <div class="menu-item-image-container">
+                    <img src="https://gourmet.iprospect.cl/wp-content/uploads/2016/09/Aji-gallina.jpg" alt="Ají de Gallina" class="menu-item-image">
+                    <div class="menu-item-rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="rating-count">(289)</span>
+                    </div>
+                </div>
                 <div class="menu-item-content">
                     <div class="menu-item-name">Ají de Gallina</div>
                     <div class="menu-item-description">Pollo desmenuzado en salsa cremosa de ají amarillo con frutos secos. Acompañado de papas y choclo.</div>
@@ -671,7 +148,13 @@
 
             <!-- Ceviche Mixto -->
             <div class="menu-item">
-                <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=300&fit=crop" alt="Ceviche Mixto" class="menu-item-image">
+                <div class="menu-item-image-container">
+                    <img src="https://barrilesderoble.com/images/olimpiada/recetas/ceviche-tigre-leche-pisco-peru.webp" alt="Ceviche Mixto" class="menu-item-image">
+                    <div class="menu-item-rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="rating-count">(401)</span>
+                    </div>
+                </div>
                 <div class="menu-item-content">
                     <div class="menu-item-name">Ceviche Mixto Premium</div>
                     <div class="menu-item-description">Mezcla exquisita de pescado, camarones, pulpo y langostinos marinados en limón con leche de tigre.</div>
@@ -681,7 +164,13 @@
 
             <!-- Chita a la Sal -->
             <div class="menu-item">
-                <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=300&fit=crop" alt="Chita a la Sal" class="menu-item-image">
+                <div class="menu-item-image-container">
+                    <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=300&fit=crop" alt="Chita a la Sal" class="menu-item-image">
+                    <div class="menu-item-rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="rating-count">(156)</span>
+                    </div>
+                </div>
                 <div class="menu-item-content">
                     <div class="menu-item-name">Chita a la Sal</div>
                     <div class="menu-item-description">Pescado entero cocido en costra de sal marina. Presentado frente a la mesa. Servido con salsa de mariscos.</div>
@@ -691,7 +180,13 @@
 
             <!-- Papa a la Huancaína -->
             <div class="menu-item">
-                <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400&h=300&fit=crop" alt="Papa a la Huancaína" class="menu-item-image">
+                <div class="menu-item-image-container">
+                    <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400&h=300&fit=crop" alt="Papa a la Huancaína" class="menu-item-image">
+                    <div class="menu-item-rating">
+                        <span class="stars">★★★★☆</span>
+                        <span class="rating-count">(134)</span>
+                    </div>
+                </div>
                 <div class="menu-item-content">
                     <div class="menu-item-name">Papa a la Huancaína</div>
                     <div class="menu-item-description">Papas amarillas cubiertas con salsa cremosa de ají amarillo, queso fresco y aceitunas negras.</div>
@@ -701,9 +196,131 @@
         </div>
     </section>
 
+    <!-- GALERÍA -->
+    <section id="gallery" class="section gallery">
+        <h2 class="section-title" style="color: white; border-color: var(--accent);">Galería de Imágenes</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="https://barrilesderoble.com/images/olimpiada/recetas/ceviche-tigre-leche-pisco-peru.webp" alt="Ceviche Fresco">
+                <div class="gallery-overlay">
+                    <p>Ceviche Fresco</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://static.wixstatic.com/media/9755d8_b2d98eade0814b17a67fdf7d95888fdc~mv2.png/v1/fill/w_1280,h_720,al_c/9755d8_b2d98eade0814b17a67fdf7d95888fdc~mv2.png" alt="Lomo Saltado">
+                <div class="gallery-overlay">
+                    <p>Lomo Saltado</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://sabordelobueno.com/wp-content/uploads/2020/05/causa-de-pollo-1.jpg" alt="Causa Limeña">
+                <div class="gallery-overlay">
+                    <p>Causa Limeña</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://gourmet.iprospect.cl/wp-content/uploads/2016/09/Aji-gallina.jpg" alt="Ají de Gallina">
+                <div class="gallery-overlay">
+                    <p>Ají de Gallina</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1552566626-55b993f70b16?w=500&h=400&fit=crop" alt="Ambiente Restaurante">
+                <div class="gallery-overlay">
+                    <p>Nuestro Ambiente</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1559521914-3e5e3d3c84c1?w=500&h=400&fit=crop" alt="Chef Preparando">
+                <div class="gallery-overlay">
+                    <p>Chef en Acción</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROMOCIONES -->
+    <section id="promotions" class="section promotions">
+        <h2 class="section-title">Ofertas Especiales</h2>
+        <div class="promotions-grid">
+            <div class="promo-card">
+                <div class="promo-badge">-20%</div>
+                <h3>Happy Hour</h3>
+                <p><strong>Martes a Viernes: 4:00 PM - 6:00 PM</strong></p>
+                <p>Descuento en bebidas y entrada. Reserva ahora y disfruta de nuestras especialidades a precio especial.</p>
+                <a href="#reservations" class="promo-btn">Reservar</a>
+            </div>
+            <div class="promo-card">
+                <div class="promo-badge">✨</div>
+                <h3>Menú Degustación</h3>
+                <p><strong>Todos los Días</strong></p>
+                <p>5 platos premium seleccionados por nuestro chef. Experiencia gastronómica única. $95,000 COP por persona.</p>
+                <a href="#reservations" class="promo-btn">Reservar</a>
+            </div>
+            <div class="promo-card">
+                <div class="promo-badge">👥</div>
+                <h3>Grupos & Eventos</h3>
+                <p><strong>Grupos de 8+ personas</strong></p>
+                <p>Menú especial para tu grupo. Descuentos por cantidad. Consulta nuestros paquetes personalizados.</p>
+                <a href="#reservations" class="promo-btn">Consultar</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIOS -->
+    <section id="testimonials" class="section testimonials">
+        <h2 class="section-title">Lo que Dicen Nuestros Clientes</h2>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-text">"La mejor experiencia culinaria que he tenido. El ceviche es exquisito y la atención de primera categoría. ¡Definitivamente volveré!"</p>
+                <div class="testimonial-author">
+                    <img src="https://i.pravatar.cc/60?img=1" alt="Cliente">
+                    <div>
+                        <p class="author-name">Carlos García</p>
+                        <p class="author-location">Bogotá</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-text">"Panchita es más que un restaurante, es una experiencia. Cada plato cuenta una historia de la cocina peruana auténtica."</p>
+                <div class="testimonial-author">
+                    <img src="https://i.pravatar.cc/60?img=2" alt="Cliente">
+                    <div>
+                        <p class="author-name">María López</p>
+                        <p class="author-location">Lima</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-text">"El lomo saltado es impresionante, cocinado a la perfección. La presentación elegante y el sabor incomparable. Recomendado 100%."</p>
+                <div class="testimonial-author">
+                    <img src="https://i.pravatar.cc/60?img=3" alt="Cliente">
+                    <div>
+                        <p class="author-name">Juan Rodríguez</p>
+                        <p class="author-location">Santiago</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-text">"Ambiente perfecto, comida deliciosa, personal atento. Celebramos nuestro aniversario aquí y fue unforgettable. Gracias Panchita!"</p>
+                <div class="testimonial-author">
+                    <img src="https://i.pravatar.cc/60?img=4" alt="Cliente">
+                    <div>
+                        <p class="author-name">Ana Martínez</p>
+                        <p class="author-location">Bogotá</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- UBICACIONES -->
     <section id="locations" class="section locations">
-        <h2 class="section-title" style="color: white; border-color: var(--gold);">Nuestras Ubicaciones</h2>
+        <h2 class="section-title" style="color: white; border-color: var(--accent);">Nuestras Ubicaciones</h2>
         <div class="location-grid">
             <!-- Bogotá -->
             <div class="location-card">
@@ -712,7 +329,9 @@
                 <p><strong>Teléfono:</strong> +57 1 2345678</p>
                 <p><strong>Horario:</strong> Mar - Dom 12:00 PM - 11:00 PM</p>
                 <p><strong>Lunes:</strong> Cerrado</p>
-                <img src="https://images.unsplash.com/photo-1552566626-55b993f70b16?w=300&h=250&fit=crop" alt="Panchita Bogotá">
+                <div class="location-map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.8754467374236!2d-74.07366832345032!3d4.710433471458862!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9a1d9a1d9a1d%3A0x1234567890!2sBogot%C3!5e0!3m2!1ses!2sco!4v1234567890" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
             </div>
 
             <!-- Chacarilla -->
@@ -722,7 +341,9 @@
                 <p><strong>Teléfono:</strong> +51 1 4445678</p>
                 <p><strong>Horario:</strong> Mar - Dom 12:00 PM - 11:00 PM</p>
                 <p><strong>Lunes:</strong> Cerrado</p>
-                <img src="https://images.unsplash.com/photo-1559521914-3e5e3d3c84c1?w=300&h=250&fit=crop" alt="Panchita Chacarilla">
+                <div class="location-map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3900.9a1d9a1d9a1d!2d-77.0!3d-12.0!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105b8c5b5b5b5b5%3A0x1234567890!2sLima!5e0!3m2!1ses!2spe!4v1234567890" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
             </div>
 
             <!-- Miraflores -->
@@ -732,7 +353,9 @@
                 <p><strong>Teléfono:</strong> +51 1 5556789</p>
                 <p><strong>Horario:</strong> Lun - Dom 12:00 PM - 12:00 AM</p>
                 <p><strong>Especial:</strong> Abierto todos los días</p>
-                <img src="https://images.unsplash.com/photo-1482871546223-fc3ee8b6df6a?w=300&h=250&fit=crop" alt="Panchita Miraflores">
+                <div class="location-map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3900.9a1d9a1d9a1d!2d-77.0!3d-12.1!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c1c1c1c1c1c1%3A0x1234567890!2sMiraflores!5e0!3m2!1ses!2spe!4v1234567890" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
             </div>
 
             <!-- Chile -->
@@ -742,7 +365,9 @@
                 <p><strong>Teléfono:</strong> +56 2 2445678</p>
                 <p><strong>Horario:</strong> Mar - Dom 12:00 PM - 11:00 PM</p>
                 <p><strong>Lunes:</strong> Cerrado</p>
-                <img src="https://images.unsplash.com/photo-1517457373008-b7b4b2b6d0d9?w=300&h=250&fit=crop" alt="Panchita Chile">
+                <div class="location-map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3328.9a1d9a1d9a1d!2d-70.5!3d-33.3!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662d8b8b8b8b8b8%3A0x1234567890!2sSantiago!5e0!3m2!1ses!2scl!4v1234567890" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
             </div>
         </div>
     </section>
@@ -751,56 +376,71 @@
     <section id="reservations" class="section reservations">
         <h2 class="section-title">Hacer una Reserva</h2>
         <div class="reserve-form">
-            <form onsubmit="submitReservation(event)">
-                <div class="form-group">
-                    <label for="name">Nombre Completo:</label>
-                    <input type="text" id="name" placeholder="Ej. Carlos Gonzalez" required>
+            <form onsubmit="submitReservation(event)" id="reservationForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Nombre Completo:</label>
+                        <input type="text" id="name" placeholder="Ej. Carlos Gonzalez" required minlength="3">
+                        <span class="error-message" id="nameError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" placeholder="tu@email.com" required>
+                        <span class="error-message" id="emailError"></span>
+                    </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" placeholder="tu@email.com" required>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="phone">Teléfono:</label>
+                        <input type="tel" id="phone" placeholder="+57 3xx xxx xxxx" required pattern="[0-9+\s\-()]+" minlength="9">
+                        <span class="error-message" id="phoneError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="location">Ubicación:</label>
+                        <select id="location" required>
+                            <option value="">Selecciona tu ubicación</option>
+                            <option value="bogota">Bogotá</option>
+                            <option value="chacarilla">Chacarilla - Lima</option>
+                            <option value="miraflores">Miraflores - Lima</option>
+                            <option value="chile">Vitacura - Chile</option>
+                        </select>
+                        <span class="error-message" id="locationError"></span>
+                    </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="phone">Teléfono:</label>
-                    <input type="text" id="phone" placeholder="+57 3xx xxx xxxx" required>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="date">Fecha de Reserva:</label>
+                        <input type="date" id="date" required>
+                        <span class="error-message" id="dateError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="time">Hora:</label>
+                        <input type="time" id="time" required>
+                        <span class="error-message" id="timeError"></span>
+                    </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="location">Ubicación:</label>
-                    <select id="location" required>
-                        <option value="">Selecciona tu ubicación</option>
-                        <option value="bogota">Bogotá</option>
-                        <option value="chacarilla">Chacarilla - Lima</option>
-                        <option value="miraflores">Miraflores - Lima</option>
-                        <option value="chile">Vitacura - Chile</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="date">Fecha de Reserva:</label>
-                    <input type="date" id="date" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="time">Hora:</label>
-                    <input type="time" id="time" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="guests">Número de Comensales:</label>
-                    <select id="guests" required>
-                        <option value="">Selecciona cantidad</option>
-                        <option value="1">1 Persona</option>
-                        <option value="2">2 Personas</option>
-                        <option value="3">3 Personas</option>
-                        <option value="4">4 Personas</option>
-                        <option value="5">5 Personas</option>
-                        <option value="6">6 Personas</option>
-                        <option value="7">7 Personas</option>
-                        <option value="8">8 o más</option>
-                    </select>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="guests">Número de Comensales:</label>
+                        <select id="guests" required>
+                            <option value="">Selecciona cantidad</option>
+                            <option value="1">1 Persona</option>
+                            <option value="2">2 Personas</option>
+                            <option value="3">3 Personas</option>
+                            <option value="4">4 Personas</option>
+                            <option value="5">5 Personas</option>
+                            <option value="6">6 Personas</option>
+                            <option value="7">7 Personas</option>
+                            <option value="8">8 o más</option>
+                        </select>
+                        <span class="error-message" id="guestsError"></span>
+                    </div>
                 </div>
 
                 <div class="form-group">
@@ -815,13 +455,41 @@
 
     <!-- FOOTER -->
     <footer>
-        <p>&copy; 2026 Panchita - Cocina Peruana Elegante. Todos los derechos reservados.</p>
-        <p>📧 info@panchita.com | 📱 +57 1 2345678</p>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Panchita</h3>
+                <p>&copy; 2026 Cocina Peruana Elegante. Todos los derechos reservados.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <p>📧 info@panchita.com</p>
+                <p>📱 +57 1 2345678</p>
+            </div>
+            <div class="footer-section">
+                <h3>Síguenos</h3>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/panchitasazoncriolla/?hl=es" target="_blank" rel="noopener noreferrer" title="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.facebook.com/PanchitaSazonCriolla/?locale=es_LA" target="_blank" rel="noopener noreferrer" title="Facebook">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="https://wa.me/573001234567" target="_blank" rel="noopener noreferrer" title="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
     </footer>
+
+    <!-- WHATSAPP BUTTON -->
+    <a href="https://wa.me/573001234567" class="whatsapp-btn" target="_blank" rel="noopener noreferrer" title="Chat en WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
     <!-- CHATBOT -->
     <div class="chatbot-widget">
-        <button class="chatbot-button" onclick="toggleChatbot()">💬</button>
+        <button class="chatbot-button" onclick="toggleChatbot()" title="Abrir chat">💬</button>
         <div class="chatbot-window" id="chatbotWindow">
             <div class="chatbot-header">
                 <span>Asistente Panchita</span>
@@ -843,104 +511,12 @@
             <div class="modal-icon">✓</div>
             <h3 style="color: var(--accent); margin-bottom: 15px;">¡Reserva Confirmada!</h3>
             <p id="modalMessage" style="color: #666; margin-bottom: 20px;"></p>
+            <p style="font-size: 12px; color: #999; margin-bottom: 15px;">Se ha enviado un correo de confirmación a tu email.</p>
             <button class="modal-close" onclick="closeModal()">Cerrar</button>
         </div>
     </div>
 
-    <script>
-        // Chatbot responses
-        const chatbotResponses = {
-            'hola': '¡Hola! Bienvenido a Panchita. ¿Te gustaría conocer nuestro menú, hacer una reserva o saber sobre nuestras ubicaciones?',
-            'menú': 'Nuestro menú incluye: Ceviche, Lomo Saltado, Causa Limeña, Tiradito, Ají de Gallina y muchos más platos de la cocina peruana. ¿Hay alguno que te llame la atención?',
-            'reserva': 'Para hacer una reserva, ve a la sección de "Reservas" y completa el formulario con tus datos. ¡También puedes llamarnos!',
-            'ubicaciones': 'Contamos con 4 ubicaciones: Bogotá, Chacarilla (Lima), Miraflores (Lima) y Vitacura (Chile). ¿Cuál te interesa?',
-            'horario': 'Nuestro horario es de martes a domingo de 12:00 PM a 11:00 PM. Los lunes estamos cerrados (excepto Miraflores). ¿Necesitas otro dato?',
-            'precio': 'Nuestros platos van desde $42,000 COP hasta $86,000 COP. Todas las preparaciones con ingredientes frescos y de calidad.',
-            'alergia': '¡Importante! Por favor cuéntanos tus alergias en la reserva o llámanos directamente. Podemos adaptar nuestros platos.',
-            'contacto': 'Puedes contactarnos en: 📧 info@panchita.com | 📱 +57 1 2345678',
-            'default': 'Entiendo tu pregunta. ¿Puedo ayudarte con información sobre reservas, menú, ubicaciones u horarios?'
-        };
-
-        function toggleChatbot() {
-            const window = document.getElementById('chatbotWindow');
-            window.style.display = window.style.display === 'none' ? 'flex' : 'none';
-        }
-
-        function closeChatbot() {
-            document.getElementById('chatbotWindow').style.display = 'none';
-        }
-
-        function sendChatMessage() {
-            const input = document.getElementById('chatInput');
-            const message = input.value.trim().toLowerCase();
-            
-            if (message === '') return;
-
-            const messagesDiv = document.getElementById('chatbotMessages');
-            
-            // Add user message
-            const userMsg = document.createElement('div');
-            userMsg.className = 'message user-message';
-            userMsg.textContent = input.value;
-            messagesDiv.appendChild(userMsg);
-
-            // Get bot response
-            let response = chatbotResponses['default'];
-            for (const key in chatbotResponses) {
-                if (message.includes(key)) {
-                    response = chatbotResponses[key];
-                    break;
-                }
-            }
-
-            // Add bot response
-            setTimeout(() => {
-                const botMsg = document.createElement('div');
-                botMsg.className = 'message bot-message';
-                botMsg.textContent = response;
-                messagesDiv.appendChild(botMsg);
-                messagesDiv.scrollTop = messagesDiv.scrollHeight;
-            }, 500);
-
-            input.value = '';
-            messagesDiv.scrollTop = messagesDiv.scrollHeight;
-        }
-
-        // Enter key to send
-        document.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter' && document.getElementById('chatInput') === document.activeElement) {
-                sendChatMessage();
-            }
-        });
-
-        function submitReservation(event) {
-            event.preventDefault();
-
-            const name = document.getElementById('name').value;
-            const location = document.getElementById('location').value;
-            const date = document.getElementById('date').value;
-            const time = document.getElementById('time').value;
-
-            document.getElementById('modalMessage').textContent = 
-                `¡Hola ${name}! Tu reserva en Panchita ${location.toUpperCase()} ha sido confirmada para el ${date} a las ${time}. Te esperamos.`;
-
-            document.getElementById('successModal').style.display = 'flex';
-            document.querySelector('.reserve-form').reset();
-        }
-
-        function closeModal() {
-            document.getElementById('successModal').style.display = 'none';
-        }
-
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                target.scrollIntoView({ behavior: 'smooth' });
-            });
-        });
-    </script>
+    <script src="script.js"></script>
 
 </body>
 </html>
