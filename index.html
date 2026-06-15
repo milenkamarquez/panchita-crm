@@ -3,74 +3,282 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panchita Bogotá - Registro CRM</title>
+    <title>Panchita - Cocina Peruana Elegante</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         :root {
-            --base-color: #5C2C16; /* Marrón corporativo de Panchita */
-            --accent-color: #D35400; /* Naranja gastronómico */
-            --bg-color: #FDFBF7; /* Fondo crema cálido */
-            --text-color: #2C2C2C;
+            --gold: #C9A961;
+            --dark: #1a1a1a;
+            --cream: #F5F1E8;
+            --accent: #8B4513;
+            --light-gray: #E8E4DC;
         }
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
+            background-color: var(--dark);
+            color: #333;
+            line-height: 1.6;
         }
 
-        .container {
+        /* NAVBAR */
+        .navbar {
+            background-color: var(--dark);
+            padding: 15px 0;
+            position: fixed;
             width: 100%;
-            max-width: 450px;
-            background: #ffffff;
-            border-radius: 15px;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
-            overflow: hidden;
-            margin: 15px;
-            border: 1px solid #EAE5DC;
+            top: 0;
+            z-index: 999;
+            border-bottom: 2px solid var(--gold);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
         }
 
-        .header {
-            background-color: var(--base-color);
-            color: #ffffff;
-            text-align: center;
-            padding: 25px 15px;
-            border-bottom: 4px solid var(--accent-color);
+        .navbar-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        .header h1 {
-            margin: 0;
+        .logo {
+            color: var(--gold);
             font-size: 24px;
+            font-weight: bold;
             letter-spacing: 2px;
-            text-transform: uppercase;
         }
 
-        .header p {
-            margin: 5px 0 0 0;
-            font-size: 14px;
-            opacity: 0.9;
-            font-style: italic;
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
         }
 
-        .content {
-            padding: 25px 20px;
+        .nav-links a {
+            color: var(--cream);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
         }
 
-        .intro-text {
-            font-size: 14px;
-            line-height: 1.5;
-            color: #666;
-            margin-bottom: 20px;
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .reserve-btn {
+            background-color: var(--gold);
+            color: var(--dark);
+            padding: 10px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .reserve-btn:hover {
+            background-color: #b39660;
+            transform: scale(1.05);
+        }
+
+        /* HERO */
+        .hero {
+            background: linear-gradient(rgba(26, 26, 26, 0.6), rgba(26, 26, 26, 0.8)), url('https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=1200&h=600&fit=crop') center/cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
-            background: #F4F0E8;
-            padding: 10px;
+            color: white;
+            margin-top: 70px;
+        }
+
+        .hero-content h1 {
+            font-size: 60px;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        .hero-content p {
+            font-size: 24px;
+            margin-bottom: 40px;
+            font-style: italic;
+            color: var(--gold);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 15px 40px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background-color: var(--gold);
+            color: var(--dark);
+        }
+
+        .btn-primary:hover {
+            background-color: #b39660;
+            transform: translateY(-3px);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--gold);
+            border: 2px solid var(--gold);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--gold);
+            color: var(--dark);
+        }
+
+        /* SECCIONES */
+        .section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 45px;
+            margin-bottom: 60px;
+            color: var(--dark);
+            border-bottom: 3px solid var(--gold);
+            padding-bottom: 20px;
+        }
+
+        /* MENÚ */
+        .menu {
+            background-color: var(--cream);
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .menu-item {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(201, 169, 97, 0.3);
+        }
+
+        .menu-item-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .menu-item-content {
+            padding: 20px;
+        }
+
+        .menu-item-name {
+            font-size: 22px;
+            font-weight: bold;
+            color: var(--accent);
+            margin-bottom: 8px;
+        }
+
+        .menu-item-description {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .menu-item-price {
+            font-size: 20px;
+            font-weight: bold;
+            color: var(--gold);
+        }
+
+        /* UBICACIONES */
+        .locations {
+            background-color: var(--dark);
+            color: white;
+        }
+
+        .location-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .location-card {
+            background: rgba(201, 169, 97, 0.1);
+            border: 2px solid var(--gold);
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .location-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(201, 169, 97, 0.3);
+        }
+
+        .location-card h3 {
+            color: var(--gold);
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .location-card p {
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .location-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
             border-radius: 8px;
-            border-left: 4px solid var(--accent-color);
+            margin-top: 20px;
+        }
+
+        /* RESERVAS */
+        .reservations {
+            background-color: var(--cream);
+        }
+
+        .reserve-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
 
         .form-group {
@@ -79,50 +287,207 @@
 
         label {
             display: block;
-            font-weight: 600;
+            font-weight: bold;
+            color: var(--accent);
             margin-bottom: 8px;
             font-size: 14px;
-            color: var(--base-color);
         }
 
-        input[type="text"], select {
+        input[type="text"],
+        input[type="email"],
+        input[type="date"],
+        input[type="time"],
+        select,
+        textarea {
             width: 100%;
             padding: 12px;
-            border: 1px solid #CCC;
-            border-radius: 8px;
-            box-sizing: border-box;
+            border: 2px solid var(--light-gray);
+            border-radius: 5px;
             font-size: 14px;
-            background-color: #FCFCFC;
-            transition: all 0.3s ease;
+            font-family: inherit;
+            transition: border-color 0.3s;
         }
 
-        input[type="text"]:focus, select:focus {
-            border-color: var(--accent-color);
+        input:focus,
+        select:focus,
+        textarea:focus {
             outline: none;
-            box-shadow: 0 0 5px rgba(211, 84, 0, 0.2);
+            border-color: var(--gold);
+            box-shadow: 0 0 5px rgba(201, 169, 97, 0.3);
         }
 
-        .btn-submit {
-            background-color: var(--accent-color);
-            color: white;
+        .form-submit {
+            background-color: var(--gold);
+            color: var(--dark);
+            padding: 15px;
             border: none;
-            width: 100%;
-            padding: 14px;
+            border-radius: 5px;
             font-size: 16px;
             font-weight: bold;
-            border-radius: 8px;
             cursor: pointer;
-            transition: background 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-top: 10px;
+            width: 100%;
+            transition: all 0.3s;
         }
 
-        .btn-submit:hover {
-            background-color: #B34300;
+        .form-submit:hover {
+            background-color: #b39660;
+            transform: scale(1.02);
         }
 
-        /* Modal / Alerta de éxito simulada */
+        /* CHATBOT */
+        .chatbot-widget {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+        }
+
+        .chatbot-button {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: var(--gold);
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            font-size: 24px;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dark);
+        }
+
+        .chatbot-button:hover {
+            transform: scale(1.1);
+            background-color: #b39660;
+        }
+
+        .chatbot-window {
+            display: none;
+            position: absolute;
+            bottom: 80px;
+            right: 0;
+            width: 350px;
+            height: 500px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            flex-direction: column;
+            overflow: hidden;
+            animation: slideUp 0.3s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .chatbot-header {
+            background-color: var(--gold);
+            color: var(--dark);
+            padding: 20px;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chatbot-close {
+            background: none;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            color: var(--dark);
+        }
+
+        .chatbot-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+
+        .message {
+            margin-bottom: 15px;
+            padding: 10px 15px;
+            border-radius: 8px;
+            max-width: 80%;
+            word-wrap: break-word;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .bot-message {
+            background-color: #e9e9e9;
+            color: var(--dark);
+            align-self: flex-start;
+        }
+
+        .user-message {
+            background-color: var(--gold);
+            color: var(--dark);
+            align-self: flex-end;
+            margin-left: auto;
+        }
+
+        .chatbot-input-area {
+            padding: 15px;
+            border-top: 1px solid #ddd;
+            display: flex;
+            gap: 10px;
+        }
+
+        .chatbot-input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 13px;
+        }
+
+        .chatbot-send {
+            background-color: var(--gold);
+            border: none;
+            color: var(--dark);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .chatbot-send:hover {
+            background-color: #b39660;
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: var(--dark);
+            color: var(--cream);
+            text-align: center;
+            padding: 30px;
+            border-top: 2px solid var(--gold);
+        }
+
+        /* MODAL */
         .modal {
             display: none;
             position: fixed;
@@ -130,129 +495,423 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.6);
-            justify-content: center;
+            background: rgba(0,0,0,0.7);
+            z-index: 1001;
             align-items: center;
-            z-index: 1000;
+            justify-content: center;
             padding: 20px;
-            box-sizing: border-box;
         }
 
         .modal-content {
             background: white;
-            padding: 30px 20px;
-            border-radius: 12px;
+            padding: 40px;
+            border-radius: 10px;
             text-align: center;
-            max-width: 350px;
-            width: 100%;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            max-width: 400px;
             animation: popup 0.3s ease-out;
         }
 
         @keyframes popup {
-            from { transform: scale(0.8); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
         }
 
         .modal-icon {
-            font-size: 50px;
-            color: #2ECC71;
-            margin-bottom: 15px;
-        }
-
-        .modal-title {
-            color: var(--base-color);
-            margin: 0 0 10px 0;
-            font-size: 20px;
-        }
-
-        .modal-text {
-            font-size: 14px;
-            color: #555;
-            line-height: 1.4;
+            font-size: 60px;
+            color: var(--gold);
             margin-bottom: 20px;
         }
 
-        .btn-close {
-            background-color: var(--base-color);
-            color: white;
+        .modal-close {
+            background-color: var(--gold);
+            color: var(--dark);
             border: none;
-            padding: 10px 20px;
+            padding: 12px 30px;
             border-radius: 5px;
             cursor: pointer;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 36px;
+            }
+
+            .section {
+                padding: 40px 15px;
+            }
+
+            .reserve-btn {
+                padding: 8px 15px;
+                font-size: 14px;
+            }
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <div class="header">
-            <h1>Panchita</h1>
-            <p>Sazón Criolla - Bogotá</p>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="logo">🍽️ PANCHITA</div>
+            <ul class="nav-links">
+                <li><a href="#menu">MENÚ</a></li>
+                <li><a href="#locations">UBICACIONES</a></li>
+                <li><a href="#reservations">RESERVAS</a></li>
+            </ul>
+            <a href="#reservations" class="reserve-btn">Reservar Ahora</a>
         </div>
-        
-        <div class="content">
-            <div class="intro-text">
-                Gestión Comercial Multinacional: Personalización de la experiencia del consumidor digital.
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>PANCHITA</h1>
+            <p>Cocina Peruana Elegante</p>
+            <p style="font-size: 18px; color: var(--cream);">Sabores que cuentan historias</p>
+            <div class="hero-buttons">
+                <a href="#menu" class="btn btn-primary">Ver Menú</a>
+                <a href="#reservations" class="btn btn-secondary">Hacer Reserva</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- MENÚ -->
+    <section id="menu" class="section menu">
+        <h2 class="section-title">Nuestro Menú</h2>
+        <div class="menu-grid">
+            <!-- Ceviche -->
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=300&fit=crop" alt="Ceviche" class="menu-item-image">
+                <div class="menu-item-content">
+                    <div class="menu-item-name">Ceviche Clásico</div>
+                    <div class="menu-item-description">Pescado fresco marinado en limón con cebolla roja, cilantro y rocoto. Acompañado de camote y choclo.</div>
+                    <div class="menu-item-price">$68,000 COP</div>
+                </div>
             </div>
 
-            <form id="crmForm" onsubmit="enviarDatos(event)">
+            <!-- Lomo Saltado -->
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1432139555190-58524dae6a55?w=400&h=300&fit=crop" alt="Lomo Saltado" class="menu-item-image">
+                <div class="menu-item-content">
+                    <div class="menu-item-name">Lomo Saltado</div>
+                    <div class="menu-item-description">Trozos de lomo fino salteados con cebolla, tomate y rocoto. Servido con papas fritas y arroz blanco.</div>
+                    <div class="menu-item-price">$72,000 COP</div>
+                </div>
+            </div>
+
+            <!-- Causa -->
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=300&fit=crop" alt="Causa" class="menu-item-image">
+                <div class="menu-item-content">
+                    <div class="menu-item-name">Causa Limeña</div>
+                    <div class="menu-item-description">Pastel de papa amarilla con atún, aguacate y huevo duro. Decorado con salsa de ají amarillo y mayonesa.</div>
+                    <div class="menu-item-price">$54,000 COP</div>
+                </div>
+            </div>
+
+            <!-- Tiradito -->
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=300&fit=crop" alt="Tiradito" class="menu-item-image">
+                <div class="menu-item-content">
+                    <div class="menu-item-name">Tiradito de Pez Espada</div>
+                    <div class="menu-item-description">Filetes finos de pez espada en salsa de ají amarillo con choclo cancha y aceitunas negras.</div>
+                    <div class="menu-item-price">$76,000 COP</div>
+                </div>
+            </div>
+
+            <!-- Ají de Gallina -->
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=300&fit=crop" alt="Ají de Gallina" class="menu-item-image">
+                <div class="menu-item-content">
+                    <div class="menu-item-name">Ají de Gallina</div>
+                    <div class="menu-item-description">Pollo desmenuzado en salsa cremosa de ají amarillo con frutos secos. Acompañado de papas y choclo.</div>
+                    <div class="menu-item-price">$58,000 COP</div>
+                </div>
+            </div>
+
+            <!-- Ceviche Mixto -->
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=300&fit=crop" alt="Ceviche Mixto" class="menu-item-image">
+                <div class="menu-item-content">
+                    <div class="menu-item-name">Ceviche Mixto Premium</div>
+                    <div class="menu-item-description">Mezcla exquisita de pescado, camarones, pulpo y langostinos marinados en limón con leche de tigre.</div>
+                    <div class="menu-item-price">$84,000 COP</div>
+                </div>
+            </div>
+
+            <!-- Chita a la Sal -->
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=300&fit=crop" alt="Chita a la Sal" class="menu-item-image">
+                <div class="menu-item-content">
+                    <div class="menu-item-name">Chita a la Sal</div>
+                    <div class="menu-item-description">Pescado entero cocido en costra de sal marina. Presentado frente a la mesa. Servido con salsa de mariscos.</div>
+                    <div class="menu-item-price">$86,000 COP</div>
+                </div>
+            </div>
+
+            <!-- Papa a la Huancaína -->
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=300&fit=crop" alt="Papa a la Huancaína" class="menu-item-image">
+                <div class="menu-item-content">
+                    <div class="menu-item-name">Papa a la Huancaína</div>
+                    <div class="menu-item-description">Papas amarillas cubiertas con salsa cremosa de ají amarillo, queso fresco y aceitunas negras.</div>
+                    <div class="menu-item-price">$42,000 COP</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- UBICACIONES -->
+    <section id="locations" class="section locations">
+        <h2 class="section-title" style="color: white; border-color: var(--gold);">Nuestras Ubicaciones</h2>
+        <div class="location-grid">
+            <!-- Bogotá -->
+            <div class="location-card">
+                <h3>🏢 Panchita Bogotá</h3>
+                <p><strong>Dirección:</strong> Cra. 4 #26-50, Bogotá</p>
+                <p><strong>Teléfono:</strong> +57 1 2345678</p>
+                <p><strong>Horario:</strong> Mar - Dom 12:00 PM - 11:00 PM</p>
+                <p><strong>Lunes:</strong> Cerrado</p>
+                <img src="https://images.unsplash.com/photo-1552566626-55b993f70b16?w=300&h=250&fit=crop" alt="Panchita Bogotá">
+            </div>
+
+            <!-- Chacarilla -->
+            <div class="location-card">
+                <h3>🏢 Panchita Chacarilla</h3>
+                <p><strong>Dirección:</strong> Avenida Primavera 577, San Borja - Lima</p>
+                <p><strong>Teléfono:</strong> +51 1 4445678</p>
+                <p><strong>Horario:</strong> Mar - Dom 12:00 PM - 11:00 PM</p>
+                <p><strong>Lunes:</strong> Cerrado</p>
+                <img src="https://images.unsplash.com/photo-1559521914-3e5e3d3c84c1?w=300&h=250&fit=crop" alt="Panchita Chacarilla">
+            </div>
+
+            <!-- Miraflores -->
+            <div class="location-card">
+                <h3>🏢 Panchita Miraflores</h3>
+                <p><strong>Dirección:</strong> Calle 2 de Mayo 298, Miraflores - Lima</p>
+                <p><strong>Teléfono:</strong> +51 1 5556789</p>
+                <p><strong>Horario:</strong> Lun - Dom 12:00 PM - 12:00 AM</p>
+                <p><strong>Especial:</strong> Abierto todos los días</p>
+                <img src="https://images.unsplash.com/photo-1482871546223-fc3ee8b6df6a?w=300&h=250&fit=crop" alt="Panchita Miraflores">
+            </div>
+
+            <!-- Chile -->
+            <div class="location-card">
+                <h3>🏢 Panchita Chile</h3>
+                <p><strong>Dirección:</strong> Nueva Costanera 3979, Vitacura - Santiago</p>
+                <p><strong>Teléfono:</strong> +56 2 2445678</p>
+                <p><strong>Horario:</strong> Mar - Dom 12:00 PM - 11:00 PM</p>
+                <p><strong>Lunes:</strong> Cerrado</p>
+                <img src="https://images.unsplash.com/photo-1517457373008-b7b4b2b6d0d9?w=300&h=250&fit=crop" alt="Panchita Chile">
+            </div>
+        </div>
+    </section>
+
+    <!-- RESERVAS -->
+    <section id="reservations" class="section reservations">
+        <h2 class="section-title">Hacer una Reserva</h2>
+        <div class="reserve-form">
+            <form onsubmit="submitReservation(event)">
                 <div class="form-group">
-                    <label for="nombre">Nombre del Comensal:</label>
-                    <input type="text" id="nombre" placeholder="Ej. Profesor James Leigh" required>
+                    <label for="name">Nombre Completo:</label>
+                    <input type="text" id="name" placeholder="Ej. Carlos Gonzalez" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="motivo">Motivo de su visita a Bogotá:</label>
-                    <select id="motivo" required>
-                        <option value="" disabled selected>Seleccione una opción</option>
-                        <option value="negocios">Reunión de Negocios / Junta Comercial</option>
-                        <option value="celebracion">Celebración Especial</option>
-                        <option value="turismo">Turismo Gastronómico Intercultural</option>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" placeholder="tu@email.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Teléfono:</label>
+                    <input type="text" id="phone" placeholder="+57 3xx xxx xxxx" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="location">Ubicación:</label>
+                    <select id="location" required>
+                        <option value="">Selecciona tu ubicación</option>
+                        <option value="bogota">Bogotá</option>
+                        <option value="chacarilla">Chacarilla - Lima</option>
+                        <option value="miraflores">Miraflores - Lima</option>
+                        <option value="chile">Vitacura - Chile</option>
                     </select>
                 </div>
 
                 <div class="form-group">
-                    <label for="alergias">¿Tiene alguna restricción alimentaria o alergia?</label>
-                    <input type="text" id="alergias" placeholder="Ej. Gluten, mariscos, ninguna" required>
+                    <label for="date">Fecha de Reserva:</label>
+                    <input type="date" id="date" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="cortesia">Seleccione su cortesía de bienvenida (Enfoque Intercultural):</label>
-                    <select id="cortesia" required>
-                        <option value="" disabled selected>Seleccione una bebida</option>
-                        <option value="chicha">Chicha Morada Tradicional (Perú)</option>
-                        <option value="lulo">Refresco de Lulo Fresco (Colombia)</option>
+                    <label for="time">Hora:</label>
+                    <input type="time" id="time" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="guests">Número de Comensales:</label>
+                    <select id="guests" required>
+                        <option value="">Selecciona cantidad</option>
+                        <option value="1">1 Persona</option>
+                        <option value="2">2 Personas</option>
+                        <option value="3">3 Personas</option>
+                        <option value="4">4 Personas</option>
+                        <option value="5">5 Personas</option>
+                        <option value="6">6 Personas</option>
+                        <option value="7">7 Personas</option>
+                        <option value="8">8 o más</option>
                     </select>
                 </div>
 
-                <button type="submit" class="btn-submit">Confirmar Reserva Inteligente</button>
+                <div class="form-group">
+                    <label for="preferences">Preferencias Especiales:</label>
+                    <textarea id="preferences" placeholder="Alergias, preferencias dietéticas, ocasiones especiales..." rows="3"></textarea>
+                </div>
+
+                <button type="submit" class="form-submit">Confirmar Reserva</button>
             </form>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 Panchita - Cocina Peruana Elegante. Todos los derechos reservados.</p>
+        <p>📧 info@panchita.com | 📱 +57 1 2345678</p>
+    </footer>
+
+    <!-- CHATBOT -->
+    <div class="chatbot-widget">
+        <button class="chatbot-button" onclick="toggleChatbot()">💬</button>
+        <div class="chatbot-window" id="chatbotWindow">
+            <div class="chatbot-header">
+                <span>Asistente Panchita</span>
+                <button class="chatbot-close" onclick="closeChatbot()">✕</button>
+            </div>
+            <div class="chatbot-messages" id="chatbotMessages">
+                <div class="message bot-message">¡Hola! 👋 Soy tu asistente virtual de Panchita. ¿En qué puedo ayudarte?</div>
+            </div>
+            <div class="chatbot-input-area">
+                <input type="text" class="chatbot-input" id="chatInput" placeholder="Escribe tu pregunta...">
+                <button class="chatbot-send" onclick="sendChatMessage()">→</button>
+            </div>
         </div>
     </div>
 
-    <!-- Ventana Emergente de Simulación CRM -->
-    <div id="successModal" class="modal">
+    <!-- MODAL -->
+    <div class="modal" id="successModal">
         <div class="modal-content">
             <div class="modal-icon">✓</div>
-            <h3 class="modal-title">¡Reserva Sincronizada!</h3>
-            <p class="modal-text">Los datos han sido enviados exitosamente al <strong>módulo CRM de Panchita Internacional</strong>.<br><br>La cadena de suministro ha priorizado sus insumos críticos para su llegada.</p>
-            <button class="btn-close" onclick="cerrarModal()">Finalizar Demostración</button>
+            <h3 style="color: var(--accent); margin-bottom: 15px;">¡Reserva Confirmada!</h3>
+            <p id="modalMessage" style="color: #666; margin-bottom: 20px;"></p>
+            <button class="modal-close" onclick="closeModal()">Cerrar</button>
         </div>
     </div>
 
     <script>
-        function enviarDatos(event) {
-            event.preventDefault(); // Evita que la página se recargue
-            
-            // Aquí simulamos la captura en el sistema corporativo
-            document.getElementById('successModal').style.display = 'flex';
+        // Chatbot responses
+        const chatbotResponses = {
+            'hola': '¡Hola! Bienvenido a Panchita. ¿Te gustaría conocer nuestro menú, hacer una reserva o saber sobre nuestras ubicaciones?',
+            'menú': 'Nuestro menú incluye: Ceviche, Lomo Saltado, Causa Limeña, Tiradito, Ají de Gallina y muchos más platos de la cocina peruana. ¿Hay alguno que te llame la atención?',
+            'reserva': 'Para hacer una reserva, ve a la sección de "Reservas" y completa el formulario con tus datos. ¡También puedes llamarnos!',
+            'ubicaciones': 'Contamos con 4 ubicaciones: Bogotá, Chacarilla (Lima), Miraflores (Lima) y Vitacura (Chile). ¿Cuál te interesa?',
+            'horario': 'Nuestro horario es de martes a domingo de 12:00 PM a 11:00 PM. Los lunes estamos cerrados (excepto Miraflores). ¿Necesitas otro dato?',
+            'precio': 'Nuestros platos van desde $42,000 COP hasta $86,000 COP. Todas las preparaciones con ingredientes frescos y de calidad.',
+            'alergia': '¡Importante! Por favor cuéntanos tus alergias en la reserva o llámanos directamente. Podemos adaptar nuestros platos.',
+            'contacto': 'Puedes contactarnos en: 📧 info@panchita.com | 📱 +57 1 2345678',
+            'default': 'Entiendo tu pregunta. ¿Puedo ayudarte con información sobre reservas, menú, ubicaciones u horarios?'
+        };
+
+        function toggleChatbot() {
+            const window = document.getElementById('chatbotWindow');
+            window.style.display = window.style.display === 'none' ? 'flex' : 'none';
         }
 
-        function cerrarModal() {
-            document.getElementById('successModal').style.display = 'none';
-            document.getElementById('crmForm').reset(); // Limpia el formulario
+        function closeChatbot() {
+            document.getElementById('chatbotWindow').style.display = 'none';
         }
+
+        function sendChatMessage() {
+            const input = document.getElementById('chatInput');
+            const message = input.value.trim().toLowerCase();
+            
+            if (message === '') return;
+
+            const messagesDiv = document.getElementById('chatbotMessages');
+            
+            // Add user message
+            const userMsg = document.createElement('div');
+            userMsg.className = 'message user-message';
+            userMsg.textContent = input.value;
+            messagesDiv.appendChild(userMsg);
+
+            // Get bot response
+            let response = chatbotResponses['default'];
+            for (const key in chatbotResponses) {
+                if (message.includes(key)) {
+                    response = chatbotResponses[key];
+                    break;
+                }
+            }
+
+            // Add bot response
+            setTimeout(() => {
+                const botMsg = document.createElement('div');
+                botMsg.className = 'message bot-message';
+                botMsg.textContent = response;
+                messagesDiv.appendChild(botMsg);
+                messagesDiv.scrollTop = messagesDiv.scrollHeight;
+            }, 500);
+
+            input.value = '';
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+        }
+
+        // Enter key to send
+        document.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter' && document.getElementById('chatInput') === document.activeElement) {
+                sendChatMessage();
+            }
+        });
+
+        function submitReservation(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const location = document.getElementById('location').value;
+            const date = document.getElementById('date').value;
+            const time = document.getElementById('time').value;
+
+            document.getElementById('modalMessage').textContent = 
+                `¡Hola ${name}! Tu reserva en Panchita ${location.toUpperCase()} ha sido confirmada para el ${date} a las ${time}. Te esperamos.`;
+
+            document.getElementById('successModal').style.display = 'flex';
+            document.querySelector('.reserve-form').reset();
+        }
+
+        function closeModal() {
+            document.getElementById('successModal').style.display = 'none';
+        }
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                target.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
     </script>
 
 </body>
